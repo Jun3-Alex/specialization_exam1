@@ -28,9 +28,9 @@ class NoteManager:
     @staticmethod
     def dict_to_str(note_dict):
         return (f"Note ID: {note_dict['id']}\n"
-                f"Title: {note_dict['title']}\n"
-                f"Body: {note_dict['body']}\n"
-                f"Last Modified: {note_dict['last_modified']}\n")
+                f"Заголовок: {note_dict['title']}\n"
+                f"Тело заметки: {note_dict['body']}\n"
+                f"Последнее изменение: {note_dict['last_modified']}\n")
 
     def get_notes(self):
         notes_as_dicts = [note.to_dict() for note in self.notes.values()]
@@ -57,13 +57,10 @@ class NoteManager:
     def find_note(self, note_id):
         for note in self.notes.values():
             if note.note_id == note_id:
-                return note.to_dict()
+                return str(note)
         return None
 
     def find_note_by_title(self, title):
         for note in self.notes.values():
             if note.title == title:
-                return [note.to_dict() for note in self.notes.values() if note.title == title]
-        return None
-
-
+                return [print(str(note)) for note in self.notes.values() if note.title == title]

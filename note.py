@@ -4,13 +4,13 @@ import secrets
 
 class Note:
     def __init__(self, title: str, body: str, note_id=None, last_modified=None):
-        self.note_id = note_id if note_id else self.generate_id()
+        self.note_id = note_id if note_id else self._generate_id()
         self.title = title
         self.body = body
         self.last_modified = last_modified if last_modified else datetime.now()
 
     @staticmethod
-    def generate_id():
+    def _generate_id():
         return secrets.token_hex(4)
 
     def update(self, title, body):
@@ -37,6 +37,6 @@ class Note:
 
     def __str__(self):
         return (f"Note ID: {self.note_id}\n"
-                f"Title: {self.title}\n"
-                f"Body: {self.body}\n"
-                f"Last Modified: {self.last_modified.strftime('%Y-%m-%d %H:%M:%S')}")
+                f"Заголовок: {self.title}\n"
+                f"Тело заметки: {self.body}\n"
+                f"Последнее изменение: {self.last_modified.strftime('%Y-%m-%d %H:%M:%S')}\n")
