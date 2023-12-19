@@ -50,11 +50,13 @@ class NoteManager:
     def find_note(self, note_id):
         for note in self.notes.values():
             if note.note_id == note_id:
-                return {note.title: note.to_dict() for note in self.notes.values()}
+                return note.to_dict()
         return None
 
     def find_note_by_title(self, title):
         for note in self.notes.values():
             if note.title == title:
-                return {note.title: note.to_dict() for note in self.notes.values()}
+                return [note.to_dict() for note in self.notes.values() if note.title == title]
         return None
+
+
