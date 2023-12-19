@@ -24,10 +24,17 @@ class NoteManager:
         note = Note(title, body)
         self.notes[note.note_id] = note
         self.save_notes()
-        return f'{note}\n'
+
+    @staticmethod
+    def dict_to_str(note_dict):
+        return (f"Note ID: {note_dict['id']}\n"
+                f"Title: {note_dict['title']}\n"
+                f"Body: {note_dict['body']}\n"
+                f"Last Modified: {note_dict['last_modified']}\n")
 
     def get_notes(self):
-        return [note.to_dict() for note in self.notes.values()]
+        notes_as_dicts = [note.to_dict() for note in self.notes.values()]
+        return [print(self.dict_to_str(note)) for note in notes_as_dicts]
 
     def update_note(self, note_id, title, body):
         if note_id in self.notes:

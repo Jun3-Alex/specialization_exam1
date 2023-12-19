@@ -34,3 +34,9 @@ class Note:
             data['id'],
             datetime.strptime(data['last_modified'], '%Y-%m-%d %H:%M:%S')
         )
+
+    def __str__(self):
+        return (f"Note ID: {self.note_id}\n"
+                f"Title: {self.title}\n"
+                f"Body: {self.body}\n"
+                f"Last Modified: {self.last_modified.strftime('%Y-%m-%d %H:%M:%S')}")
