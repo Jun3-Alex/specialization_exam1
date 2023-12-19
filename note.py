@@ -34,5 +34,3 @@ class Note:
             data['id'],
             datetime.strptime(data['last_modified'], '%Y-%m-%d %H:%M:%S')
         )
-
-
