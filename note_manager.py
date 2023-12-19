@@ -5,6 +5,26 @@ from note import Note
 
 
 class NoteManager:
+    """
+        Класс для управления заметками.
+
+        Атрибуты:
+            filepath (str): Путь к файлу, в котором хранятся заметки.
+            notes (dict): Словарь, содержащий заметки.
+
+        Методы:
+            __init__: Инициализирует новый экземпляр класса NoteManager.
+            load_notes: Загружает заметки из файла.
+            save_notes: Сохраняет заметки в файл.
+            add_note: Добавляет новую заметку.
+            dict_to_str: Преобразует словарь заметки в строку.
+            get_notes: Возвращает все заметки.
+            update_note: Обновляет существующую заметку.
+            delete_note: Удаляет существующую заметку.
+            delete_all_notes: Удаляет все заметки.
+            find_note: Находит заметку по идентификатору.
+            find_note_by_title: Находит заметку по заголовку.
+        """
     def __init__(self, filepath):
         self.filepath = filepath
         self.notes = self.load_notes()

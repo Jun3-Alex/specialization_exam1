@@ -3,6 +3,23 @@ import secrets
 
 
 class Note:
+    """
+        Класс для представления заметки.
+
+        Атрибуты:
+            note_id (str): Уникальный идентификатор заметки.
+            title (str): Заголовок заметки.
+            body (str): Текст заметки.
+            last_modified (datetime): Временная метка последнего изменения заметки.
+
+        Методы:
+            __init__: Инициализирует новый экземпляр класса.
+            _generate_id: Генерирует уникальный идентификатор.
+            update: Обновляет заголовок и текст заметки.
+            to_dict: Возвращает словарь с данными заметки.
+            from_dict: Создает экземпляр класса из словаря с данными заметки.
+            __str__: Возвращает строковое представление заметки.
+        """
     def __init__(self, title: str, body: str, note_id=None, last_modified=None):
         self.note_id = note_id if note_id else self._generate_id()
         self.title = title
