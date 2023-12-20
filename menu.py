@@ -13,6 +13,7 @@ def display_menu():
     print("5. Найти заметку по ID")
     print("6. Найти заметку по заголовку")
     print("7. Удалить все заметки")
+    print("8. Найти заметку по дате")
     print("0. Выход\n")
     choice = input("Выберите пункт меню: ")
     return choice
@@ -65,6 +66,10 @@ def process_user_choice(choice, manager):
     elif choice == '7':
         manager.delete_all_notes()
         print("Все заметки удалены.\n")
+
+    elif choice == '8':
+        date = input("Введите дату в формате ГГГГ-ММ-ДД: ")
+        manager.find_note_by_date(date)
 
     elif choice == '0':
         print("До свидания!")
