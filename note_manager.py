@@ -24,6 +24,7 @@ class NoteManager:
             delete_all_notes: Удаляет все заметки.
             find_note: Находит заметку по идентификатору.
             find_note_by_title: Находит заметку по заголовку.
+            find_note_by_date: Находит заметку по дате.
         """
     def __init__(self, filepath):
         self.filepath = filepath
@@ -88,4 +89,5 @@ class NoteManager:
     def find_note_by_date(self, date):
         for note in self.notes.values():
             if note.last_modified.strftime("%Y-%m-%d") == date:
-                return [print(self.dict_to_str(note.to_dict())) for note in self.notes.values() if note.last_modified.strftime("%Y-%m-%d") == date]
+                return [print(self.dict_to_str(note.to_dict())) for note in self.notes.values()
+                        if note.last_modified.strftime("%Y-%m-%d") == date]
