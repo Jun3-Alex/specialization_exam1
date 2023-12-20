@@ -86,8 +86,6 @@ class NoteManager:
                 return [print(self.dict_to_str(note.to_dict())) for note in self.notes.values() if note.title == title]
 
     def find_note_by_date(self, date):
-        found_notes = []
         for note in self.notes.values():
             if note.last_modified.strftime("%Y-%m-%d") == date:
-                found_notes.append(note)
-                [print(self.dict_to_str(note.to_dict())) for note in found_notes]
+                return [print(self.dict_to_str(note.to_dict())) for note in self.notes.values() if note.last_modified.strftime("%Y-%m-%d") == date]
